@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 const months = [
 	"January",
 	"February",
@@ -13,14 +15,14 @@ const months = [
 	"December",
 ];
 
-function EmployeesBirthday({ employees }) {
+function EmployeesBirthday({ list }) {
 	const getEmployeesByMonth = (index) => {
 		let res = [];
-		employees.forEach((item) => {
+		list.forEach((item) => {
 			const date = new Date(item.dob);
 			if (date.getMonth() == index) {
 				res.push(
-					<li ley={item.id}>
+					<li key={item.id}>
 						{item.firstName + " " + item.lastName}
 					</li>
 				);
@@ -41,21 +43,27 @@ function EmployeesBirthday({ employees }) {
 	};
 
 	return (
-		<div className="employees-birthday">
-			<div>
-				<h1>Employees Birthday</h1>
-				{employees.length ? (
-					<div>
-						{months.map((month, index) =>
-							renderMonth(month, index)
-						)}
-					</div>
-				) : (
-					<p>No selected employees</p>
-				)}
+		<div className="birthday-block">
+			<div className="employees-birthday">
+				<div>
+					<h1>Employees Birthday</h1>
+					{list.length ? (
+						<div>
+							{months.map((month, index) =>
+								renderMonth(month, index)
+							)}
+						</div>
+					) : (
+						<p>No selected employees</p>
+					)}
+				</div>
 			</div>
 		</div>
 	);
 }
 
-export default EmployeesBirthday;
+const mapStateToProps = ({ employeeList, selectedEmployeeList }) => ({
+	list: employeeList.filter(({ id }) => selectedEmployeeList.includes(id)),
+});
+
+export default connect(mapStateToProps)(EmployeesBirthday);
