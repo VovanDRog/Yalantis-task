@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# The project was created as a test task for Yalantis React.js Schoo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

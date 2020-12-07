@@ -14,7 +14,7 @@ function App() {
 			"https://yalantis-react-school-api.yalantis.com/api/task0/users"
 		)
 			.then(({ data }) => dispatch({ type: "SET_EMPLOYEE_LIST", data }))
-			.catch((error) => console.log(error));
+			.catch((error) => console.error(error));
 	}, []);
 
 	if (loading) {

@@ -23,7 +23,7 @@ function EmployeesBirthday({ list }) {
 			if (date.getMonth() == index) {
 				res.push(
 					<li key={item.id}>
-						{item.firstName + " " + item.lastName}
+						{item.lastName + " " + item.firstName}
 					</li>
 				);
 			}

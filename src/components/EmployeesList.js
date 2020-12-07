@@ -46,13 +46,13 @@ function EmployeesList() {
 		dispatch({type: "SET_SELECTED_EMPLOYEE_LIST", data: newSelectedEmployees})
 	};
   
-	function getUsersByAlphabet(symbol) {
+	function getEmployeesByAlphabet(symbol) {
 		let res = [];
 
 		employeeList.forEach((employee) => {
 			if(employee.lastName.startsWith(symbol)) {
 				res.push(
-					<User
+					<Employee
 						{...employee}
 						key={employee.id}
 						onChange={onChange}
@@ -72,7 +72,7 @@ function EmployeesList() {
 				{arr_EN.map((symbol) => (
 					<div className="symbol-item" key={symbol}>
 						<p>{symbol}</p>
-						<ul>{getUsersByAlphabet(symbol)}</ul>
+						<ul>{getEmployeesByAlphabet(symbol)}</ul>
 					</div>
 				))}
 			</div>
@@ -80,7 +80,7 @@ function EmployeesList() {
 	);
 }
 
-const User = ({ id, lastName, firstName, onChange, checked }) => (
+const Employee = ({ id, lastName, firstName, onChange, checked }) => (
 	<li>
 		<input
 			type="checkbox"
