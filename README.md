@@ -1,4 +1,4 @@
-# The project was created as a test task for Yalantis React.js Schoo
+# The project was created as a test task for Yalantis company
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
