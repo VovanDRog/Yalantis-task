@@ -1,33 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-
-const arr_EN = [
-	"A",
-	"B",
-	"C",
-	"D",
-	"E",
-	"F",
-	"G",
-	"H",
-	"I",
-	"J",
-	"K",
-	"L",
-	"M",
-	"N",
-	"O",
-	"P",
-	"Q",
-	"R",
-	"S",
-	"T",
-	"U",
-	"V",
-	"W",
-	"X",
-	"Y",
-	"Z",
-];
+import { dictionary_EN } from "../config";
 
 function EmployeesList() {
   const dispatch = useDispatch();
@@ -69,7 +41,7 @@ function EmployeesList() {
 		<div className="symbols">
 			<h1>Employees</h1>
 			<div className="symbols-block">
-				{arr_EN.map((symbol) => (
+				{dictionary_EN.map((symbol) => (
 					<div className="symbol-item" key={symbol}>
 						<p>{symbol}</p>
 						<ul>{getEmployeesByAlphabet(symbol)}</ul>

@@ -1,21 +1,11 @@
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import { months } from "../config";
 
-const months = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December",
-];
+function EmployeesBirthday() {
+	const list = useSelector(({ employeeList, selectedEmployeeList }) =>
+		employeeList.filter(({ id }) => selectedEmployeeList.includes(id))
+	);
 
-function EmployeesBirthday({ list }) {
 	const getEmployeesByMonth = (index) => {
 		let res = [];
 		list.forEach((item) => {
@@ -62,8 +52,4 @@ function EmployeesBirthday({ list }) {
 	);
 }
 
-const mapStateToProps = ({ employeeList, selectedEmployeeList }) => ({
-	list: employeeList.filter(({ id }) => selectedEmployeeList.includes(id)),
-});
-
-export default connect(mapStateToProps)(EmployeesBirthday);
+export default EmployeesBirthday;
